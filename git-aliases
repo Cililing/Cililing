@@ -1,0 +1,6 @@
+fastfix = commit --fixup=HEAD
+fastlog = log --oneline -5
+fastrebase = rebase -i master --autosquash
+basecheckout = !f() { git checkout master && git pull origin && git checkout -b $1; }; f
+alias = ! git config --get-regexp ^alias\. | sed -e s/^alias\.// -e s/\ /\ =\ /
+updatemaster = !f() { git checkout master && git pull origin && git branch --show current | git checkout; }; f
